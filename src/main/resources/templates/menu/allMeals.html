@@ -9,20 +9,27 @@
               crossorigin="anonymous">
 
     </head>
+    <div th:replace="navi/menu" class="mb-2">MENU</div>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2">
                     <ul class="list-unstyled mt-5">
-                        <li class="my-5 border rounded p-5" th:each="v : ${meal}">
+                        <li class="my-5 border rounded p-5" th:each="m : ${meal}">
                             <div class="media">
                                 <div class="media-body">
                                     <h1 class="text-success">Name:
-                                        <span th:text="${v.name}"></span>
+                                        <span th:text="${m.name}"></span>
                                     </h1>
                                     <h1 class="text-success">Price:
-                                        <span th:text="${v.price}"></span>
+                                        <span th:text="${m.price}"></span>
                                     </h1>
+                                    <ul>
+                                        <li>
+                                        <span th:text="${m.components}"></span>
+                                    </li>
+                                    </ul>
+
                                 </div>
                             </div>
                         </li>

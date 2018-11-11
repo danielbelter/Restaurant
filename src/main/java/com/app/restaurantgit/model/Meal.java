@@ -22,6 +22,9 @@ public class Meal {
     private BigDecimal price;
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "meal")
     private List<OrderMeal> orderMeals = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "meal")
+    private List<Component> components = new ArrayList<>();
+
 
     @Override
     public boolean equals(Object o) {
