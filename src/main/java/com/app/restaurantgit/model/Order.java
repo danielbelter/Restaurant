@@ -5,9 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,29 +18,38 @@ public class Order {
     @Id
     @GeneratedValue
     private Long id;
-    private LocalDate deliverTime;
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "order")
-    private List<OrderMeal> orderMeals = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "customerId")
+    private Customer customer;
+    private Integer priority;
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "mealOrder",
+            joinColumns = {@JoinColumn(name = "orderId")},
+            inverseJoinColumns = {@JoinColumn(name = "mealId")}
+    )
+    private List<Meal> meals = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(id, order.id) &&
-                Objects.equals(deliverTime, order.deliverTime);
+        return Objects.equals(id, order.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, deliverTime);
+        return Objects.hash(id, priority);
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", deliverTime=" + deliverTime +
+                ", customer=" + customer +
+                ", priority=" + priority +
                 '}';
     }
 }

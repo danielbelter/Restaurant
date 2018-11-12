@@ -20,10 +20,9 @@ public class Meal {
     private Long id;
     private String name;
     private BigDecimal price;
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "meal")
-    private List<OrderMeal> orderMeals = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "meal")
-    private List<Component> components = new ArrayList<>();
+    private String component;
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "meals")
+    private List<Order> orders = new ArrayList<>();
 
 
     @Override
@@ -33,12 +32,13 @@ public class Meal {
         Meal meal = (Meal) o;
         return Objects.equals(id, meal.id) &&
                 Objects.equals(name, meal.name) &&
-                Objects.equals(price, meal.price);
+                Objects.equals(price, meal.price) &&
+                Objects.equals(component, meal.component);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price);
+        return Objects.hash(id, name, price, component);
     }
 
     @Override
@@ -47,6 +47,7 @@ public class Meal {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", component='" + component + '\'' +
                 '}';
     }
 }

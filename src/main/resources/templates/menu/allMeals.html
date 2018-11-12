@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>WORKERS</title>
+        <title>Restaurant</title>
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
               integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -24,11 +24,9 @@
                                     <h1 class="text-success">Price:
                                         <span th:text="${m.price}"></span>
                                     </h1>
-                                    <ul>
-                                        <li>
-                                        <span th:text="${m.components}"></span>
-                                    </li>
-                                    </ul>
+                                    <h1 class="text-success">Components:
+                                        <span th:text="${m.component}"></span>
+                                    </h1>
 
                                 </div>
                             </div>
