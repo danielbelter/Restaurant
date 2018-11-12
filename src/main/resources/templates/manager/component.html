@@ -28,10 +28,16 @@
                                 <span th:text="${m.component}"></span>
                             </h1>
                             <a class="btn btn-outline-success mr-3" th:href="@{/manager/edit/{id}(id=${m.id})}">EDIT</a>
+                            <form th:action="@{/manager/remove}" method="post" style="display: inline">
+                                <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+
                         </div>
                     </div>
                 </li>
             </ul>
+            <a class="btn btn-outline-success mr-3" th:href="@{/manager/add}">Add new product</a>
         </div>
     </div>
 </div>

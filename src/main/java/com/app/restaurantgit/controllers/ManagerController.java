@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 @Controller
 @RequestMapping("/manager")
@@ -54,9 +52,22 @@ public class ManagerController {
     public String workersEditPost(@ModelAttribute Meal meal) {
         try {
             mealRepository.save(meal);
-            return "redirect:/menu";
+            return "redirect:/manager";
         } catch (Exception e) {
             throw new NullPointerException("error");
         }
     }
+
+
+    @PostMapping("/remove")
+    public String workersRemovePost(@RequestParam Long id) {
+        try {
+            mealRepository.deleteById(id);
+            return "redirect:/manager";
+        } catch (Exception e) {
+            throw new NullPointerException("error");
+        }
+    }
+
+
 }
