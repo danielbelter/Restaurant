@@ -21,6 +21,9 @@ public class Meal {
     private String name;
     private BigDecimal price;
     private String component;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="categoryId")
+    private Category category;
     @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "meals")
     private List<Order> orders = new ArrayList<>();
 

@@ -1,7 +1,10 @@
 package com.app.restaurantgit.controllers;
 
+import com.app.restaurantgit.model.Category;
 import com.app.restaurantgit.model.Meal;
+import com.app.restaurantgit.repository.CategoryRepository;
 import com.app.restaurantgit.repository.MealRepository;
+import com.app.restaurantgit.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +16,15 @@ import java.time.LocalDateTime;
 @RequestMapping("/manager")
 public class ManagerController {
 
-
-    @Autowired
+    MealService service;
     MealRepository mealRepository;
+    CategoryRepository categoryRepository;
 
+    public ManagerController(MealService service, MealRepository mealRepository, CategoryRepository categoryRepository) {
+        this.service = service;
+        this.mealRepository = mealRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
     @GetMapping()
     public String managerComponent(Model model){
@@ -27,13 +35,12 @@ public class ManagerController {
     @GetMapping("/add")
     public String addMealGet(Model model){
         model.addAttribute("meal",new Meal());
+        model.addAttribute("category",categoryRepository.findAll());
         return "manager/addMeal";
     }
     @PostMapping("/add")
-    public String addMealPost(@ModelAttribute Meal meal,Model model){
-        model.addAttribute("meal",meal);
-        mealRepository.save(meal);
-
+    public String addMealPost(@ModelAttribute Meal meal){
+        service.addMeal(meal);
         return "redirect:/manager/add";
     }
 
