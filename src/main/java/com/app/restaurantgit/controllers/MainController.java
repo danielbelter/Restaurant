@@ -1,6 +1,7 @@
 package com.app.restaurantgit.controllers;
 
 import com.app.restaurantgit.repository.MealRepository;
+import com.app.restaurantgit.service.CategoryService;
 import com.app.restaurantgit.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     MealService mealService;
+    CategoryService categoryService;
 
-    public MainController(MealService mealService) {
+    public MainController(MealService mealService, CategoryService categoryService) {
         this.mealService = mealService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping()
@@ -28,7 +31,7 @@ public class MainController {
 
     @GetMapping("/category/{category}")
     public String getMealsByCategory(@PathVariable String category, Model model){
-        model.addAttribute("meal",mealService.findByCategory_Name(category));
+        model.addAttribute("meal",categoryService.findByCategory_Name(category));
         return "menu/categoryMeals";
     }
 

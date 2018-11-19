@@ -4,6 +4,7 @@ import com.app.restaurantgit.model.Category;
 import com.app.restaurantgit.model.Meal;
 import com.app.restaurantgit.repository.CategoryRepository;
 import com.app.restaurantgit.repository.MealRepository;
+import com.app.restaurantgit.service.CategoryService;
 import com.app.restaurantgit.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +20,13 @@ public class ManagerController {
     MealService service;
     MealRepository mealRepository;
     CategoryRepository categoryRepository;
+    CategoryService categoryService;
 
-    public ManagerController(MealService service, MealRepository mealRepository, CategoryRepository categoryRepository) {
+    public ManagerController(MealService service, MealRepository mealRepository,CategoryService categoryService, CategoryRepository categoryRepository) {
         this.service = service;
         this.mealRepository = mealRepository;
         this.categoryRepository = categoryRepository;
+        this.categoryService = categoryService;
     }
 
     @GetMapping()
@@ -76,5 +79,15 @@ public class ManagerController {
         }
     }
 
+    @GetMapping("/category/add")
+    public String addCategoryGet(Model model){
+        model.addAttribute("category",new Category());
+        return "manager/addCategory";
+    }
+    @PostMapping("/category/add")
+    public String addCategoryPost(@ModelAttribute Category category){
+        categoryService.addCategory(category);
+        return "redirect:/manager/category/add";
+    }
 
 }

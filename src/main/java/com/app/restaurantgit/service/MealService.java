@@ -22,16 +22,6 @@ public class MealService {
         return mealRepository.findAll();
     }
 
-    public List<Meal> findByCategory_Name(String category) {
-        category = category.toLowerCase();
-        /*
-        toLoweCase - przyda sie jak w formularzu manager
-        bedzie dodawal kategorie i bedzie uzywal roznych wielkosci liter
-        i bedzie problem z uzyskaniem konkretnek kategori. 
-         */
-        return mealRepository.findByCategory_Name(category);
-    }
-
     public void addMeal(Meal meal) {
 
         mealRepository.save(meal);
