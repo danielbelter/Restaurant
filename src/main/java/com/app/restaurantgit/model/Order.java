@@ -5,15 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue
@@ -30,6 +29,8 @@ public class Order {
             inverseJoinColumns = {@JoinColumn(name = "mealId")}
     )
     private List<Meal> meals = new ArrayList<>();
+
+    private LocalDateTime realizationDate;
 
     @Override
     public boolean equals(Object o) {
