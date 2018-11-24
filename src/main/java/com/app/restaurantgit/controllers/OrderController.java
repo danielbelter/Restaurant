@@ -64,10 +64,11 @@ public class OrderController {
             return "redirect:/order";
         }
     }
-
+/*
     @GetMapping("/complete")
     public String completeYourOrder(){
 
     }
+    */
 
 }
