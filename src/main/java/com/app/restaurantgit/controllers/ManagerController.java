@@ -3,9 +3,12 @@ package com.app.restaurantgit.controllers;
 import com.app.restaurantgit.model.Category;
 import com.app.restaurantgit.model.Meal;
 import com.app.restaurantgit.repository.CategoryRepository;
+import com.app.restaurantgit.repository.CustomerRepository;
 import com.app.restaurantgit.repository.MealRepository;
+import com.app.restaurantgit.repository.OrderRepository;
 import com.app.restaurantgit.service.CategoryService;
 import com.app.restaurantgit.service.MealService;
+import com.app.restaurantgit.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +24,12 @@ public class ManagerController {
     MealRepository mealRepository;
     CategoryRepository categoryRepository;
     CategoryService categoryService;
+    @Autowired
+    OrderRepository orderRepository;
+    @Autowired
+    OrderService orderService;
+    @Autowired
+    CustomerRepository customerRepository;
 
     public ManagerController(MealService service, MealRepository mealRepository,CategoryService categoryService, CategoryRepository categoryRepository) {
         this.service = service;
@@ -88,6 +97,14 @@ public class ManagerController {
     public String addCategoryPost(@ModelAttribute Category category){
         categoryService.addCategory(category);
         return "redirect:/manager/category/add";
+    }
+
+    @GetMapping("/orders")
+    public String viewAllOrder(Model model){
+        model.addAttribute("order",orderRepository.findAll());
+        model.addAttribute("customer",customerRepository.findAll());
+        model.addAttribute("meal",mealRepository.findAll());
+        return "manager/allOrders";
     }
 
 }
