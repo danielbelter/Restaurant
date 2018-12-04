@@ -1,19 +1,18 @@
 package com.app.restaurantgit.controllers;
 
-import com.app.restaurantgit.model.Meal;
-import com.app.restaurantgit.model.Order;
+import com.app.restaurantgit.model.*;
+import com.app.restaurantgit.repository.CustomerRepository;
 import com.app.restaurantgit.repository.MealRepository;
 import com.app.restaurantgit.repository.OrderRepository;
 import com.app.restaurantgit.service.OrderService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,6 +29,8 @@ public class OrderController {
     OrderRepository orderRepository;
     @Autowired
     OrderService orderService;
+    @Autowired
+    CustomerRepository customerRepository;
 
     @GetMapping
     public String index(Model model, HttpSession session) {
@@ -58,17 +59,66 @@ public class OrderController {
                 mealList.add(mealRepository.findById(id).orElseThrow(NullPointerException::new));
                 order.setMeals(mealList);
                 order.setRealizationDate(LocalDateTime.now());
+                order.setStatus("Nie zaplacono");
                 orderRepository.save(order);
                 session.setAttribute("order", order);
             }
             return "redirect:/order";
         }
     }
-/*
-    @GetMapping("/complete")
-    public String completeYourOrder(){
 
+    @GetMapping("/complete")
+    public String completeYourOrder(HttpSession session, Model model) {
+        if (session.getAttribute("order") != null) {
+            Order order = (Order) session.getAttribute("order");
+            model.addAttribute("customer", new Customer());
+            model.addAttribute("address", new Address());
+
+            return "customer/addCustomer";
+        }
+        return "customer/addCustomer";
     }
-    */
+
+    @PostMapping("/complete")
+    public String completeYourOrderPOST(HttpSession session, @ModelAttribute Customer customer, @ModelAttribute Address address) {
+        if (session.getAttribute("order") != null) {
+            Order order = (Order) session.getAttribute("order");
+            customer.setAddress(address);
+            order.setCustomer(customer);
+            customerRepository.save(customer);
+            orderRepository.save(order);
+
+            return "redirect:/order/payment";
+        }
+        return "redirect:/order";
+    }
+
+    @GetMapping("/payment")
+    public String paymentGET(HttpSession session, Model model) {
+        if (session.getAttribute("order") != null) {
+            Order order = (Order) session.getAttribute("order");
+            model.addAttribute("payment", new PaymentDetail());
+            model.addAttribute("order", order);
+            model.addAttribute("price", orderService.priceForOrder(order));
+
+            return "completeOrder";
+        }
+        return "completeOrder";
+    }
+
+    @GetMapping("/dotpay")
+    public String moveToDotpay(HttpSession session) {
+        if (session.getAttribute("order") != null) {
+            Order order = (Order) session.getAttribute("order");
+            BigDecimal amount = orderService.priceForOrder(order);
+            String orderNumber = order.getId().toString() + order.getRealizationDate();
+            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber;
+            String sha256hex = DigestUtils.sha256Hex(toSha256);
+            String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&chk=" + sha256hex;
+
+            return "redirect:" + paymentUri;
+        }
+        return "redirect:/order";
+    }
 
 }

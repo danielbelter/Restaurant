@@ -8,6 +8,7 @@ import com.app.restaurantgit.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +21,21 @@ public class OrderService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public List<Meal> getAllMealsForOrder(Order order){
+    public List<Meal> getAllMealsForOrder(Order order) {
         List<Meal> retList = new ArrayList<>();
-        for (Meal m: order.getMeals()){
+        for (Meal m : order.getMeals()) {
             retList.add(m);
         }
         return retList;
+    }
+
+    public BigDecimal priceForOrder(Order order) {
+        BigDecimal price = new BigDecimal(0);
+        for (Meal m : order.getMeals()) {
+            price = price.add(m.getPrice());
+        }
+        return price;
+
     }
 
 }

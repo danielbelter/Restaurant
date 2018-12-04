@@ -29,7 +29,7 @@ public class Order {
             inverseJoinColumns = {@JoinColumn(name = "mealId")}
     )
     private List<Meal> meals = new ArrayList<>();
-
+    private String status;
     private LocalDateTime realizationDate;
 
     @Override
@@ -51,6 +51,7 @@ public class Order {
                 "id=" + id +
                 ", customer=" + customer +
                 ", priority=" + priority +
+                ", status=" + status +
                 '}';
     }
 }

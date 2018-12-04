@@ -15,20 +15,21 @@
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
             <ul class="list-unstyled mt-5">
+                <h2>Your Order: </h2>
                 <li class="my-5 border rounded p-5" th:each="o : ${order}">
-                    <h1 class="text-success">Name:
-                        <span th:text="${o.customer}"></span>
-                    </h1>
-                    <h1 class="text-success">Order id:
-                        <span th:text="${o.id}"></span>
-                    </h1>
-                    <h1 class="text-success">Order id:
-                        <span th:text="${o.priority}"></span>
-                    </h1>
-                    <h1 class="text-success">Meals:
-                        <span th:text="${o.getMeals()}"></span>
-                    </h1>
+                    <div class="media">
+                        <div class="media-body">
+                            <h1 class="text-success">Order details:
+                                <span th:text="${o.priority}"></span>
+                            </h1>
+                            <h1 class="text-success">Total:
+                                <span th:text="${price}"></span>
+                            </h1>
+
+                        </div>
+                    </div>
                 </li>
+                <a class="btn btn-outline-success mr-3" th:href="@{/order/dotpay}">Complete your order</a>
             </ul>
         </div>
     </div>

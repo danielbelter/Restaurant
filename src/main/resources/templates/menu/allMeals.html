@@ -8,7 +8,9 @@
               integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
               crossorigin="anonymous">
 
+
     </head>
+
     <div th:replace="navi/menu" class="mb-2">MENU</div>
     <body>
         <div class="container">
@@ -32,6 +34,7 @@
                                     </h1>
 
                                 </div>
+
                             </div>
                             <form th:action="@{/order/add}" method="get" style="display: inline">
                                 <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
