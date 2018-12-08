@@ -106,11 +106,38 @@ public class OrderController {
         return "completeOrder";
     }
 
+    @GetMapping("/priority")
+    public String priorityGET(HttpSession session, Model model) {
+        if (session.getAttribute("order") != null) {
+            Order order = (Order) session.getAttribute("order");
+            model.addAttribute(orderRepository.findById(order.getId()).orElse(new Order()));
+            return "priorityOrder";
+        }
+        return "completeOrder";
+    }
+
+    @GetMapping("/priorityorder{priority}")
+    public String prioritySetGET(@RequestParam("priority") Integer priority, HttpSession session) {
+        if (session.getAttribute("order") != null) {
+            Order order = (Order) session.getAttribute("order");
+            order.setPriority(priority);
+            orderRepository.saveAndFlush(order);
+            return "redirect:/order/dotpay";
+        }
+        return "completeOrder";
+    }
+
     @GetMapping("/dotpay")
     public String moveToDotpay(HttpSession session) {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
-            BigDecimal amount = orderService.priceForOrder(order);
+            BigDecimal amount = BigDecimal.valueOf(0);
+            int prior = order.getPriority();
+            if (prior == 1) {
+                amount = orderService.priceForOrder(order).add(new BigDecimal(10));
+            } else{
+                amount = orderService.priceForOrder(order);
+            }
             String orderNumber = order.getId().toString() + order.getRealizationDate();
             String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber;
             String sha256hex = DigestUtils.sha256Hex(toSha256);
