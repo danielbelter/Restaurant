@@ -8,135 +8,118 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
-    <link href="images">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Strona główna<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Kuchnia Amerykańska</a>
-                    <a class="dropdown-item" href="#">Kuchnia Azjatycka</a>
-                    <a class="dropdown-item" href="#">Kuchnia Włoska</a>
-                    <a class="dropdown-item" href="#">Kuchnia Meksykańska</a>
-                    <a class="dropdown-item" href="#">Pizze</a>
-                    <a class="dropdown-item" href="#">Drinki</a>
-                </div>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">O nas<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Kontakt<span class="sr-only">(current)</span></a>
-            </li>
-
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Wpisz frazę" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
-        </form>
+<div th:replace="navi/menu"></div>
+<div class="bg-secondary">
+<div class="jumbotron jumbotron-fluid bg-secondary">
+    <div class="container">
+        <h1 class="display-4">Witamy w restauracji "FARADENZA"!</h1>
+        <p class="lead">U nas zawsze świeże jedzenie, tanio i szybko!</p>
     </div>
-</nav>
+</div>
 
-<div class="album py-5 bg-light">
+<div class="album bg-secondary">
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/american.jpg}" alt="Card image cap" height="250" width="100">
+            <div class="col-md-6">
+                <div class="card mb-5 shadow-sm">
+                    <img class="card-img-top" th:src="@{images/american.jpg}" alt="Card image cap" height="320" width="100">
                     <div class="card-body">
                         <h3>Kuchnia Amerykańska</h3>
                         <p class="card-text">Dania prosto za oceanu!</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
+                            <a href="/menu/category/kuchniaamerykańska">
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                            </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/asia.jpg}" alt="Card image cap" height="250" width="100">
+            <div class="col-md-6">
+                <div class="card mb-5 shadow-sm">
+                    <img class="card-img-top" th:src="@{images/asia.jpg}" alt="Card image cap" height="320" width="100">
                     <div class="card-body">
                         <h3>Kuchnia Azjatycka</h3>
                         <p class="card-text">Stawonogi, robaki z Japońskich ulic!</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                <a href="/menu/category/azjatycka">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/italia.jpg}" alt="Card image cap" height="250" width="100">
+            <br/><br/>
+            <div class="col-md-6">
+                <div class="card mb-5 shadow-sm">
+                    <img class="card-img-top" th:src="@{images/italia.jpg}" alt="Card image cap" height="320" width="100">
                     <div class="card-body">
                         <h3>Kuchnia Włoska</h3>
                         <p class="card-text">Posmakuj smaków znad morza!</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                <a href="/menu/category/włoska">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/meksyk.jpg}" alt="Card image cap" height="250" width="100">
+            <div class="col-md-6">
+                <div class="card mb-5 shadow-sm">
+                    <img class="card-img-top" th:src="@{images/meksyk.jpg}" alt="Card image cap" height="320" width="100">
                     <div class="card-body">
                         <h3>Kuchnia Meksykańska</h3>
                         <p class="card-text">Ostre smaki zawinięte w pszenne placki!</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                <a href="/menu/category/meksykańska">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/pizza.jpg}" alt="Card image cap" height="250" width="100">
+            <br>
+            <div class="col-md-6">
+                <div class="card mb-5 shadow-sm">
+                    <img class="card-img-top" th:src="@{images/pizza.jpg}" alt="Card image cap" height="320" width="100">
                     <div class="card-body">
                         <h3>Pizze</h3>
                         <p class="card-text">Co chcesz! Jak chcesz!</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                <a href="/menu/category/pizze">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/drinks.jpg}" alt="Card image cap" height="250" width="100">
+            <div class="col-md-6">
+                <div class="card mb-5 shadow-sm">
+                    <img class="card-img-top" th:src="@{images/drinks.jpg}" alt="Card image cap" height="320" width="100">
                     <div class="card-body">
                         <h3>Drinki</h3>
                         <p class="card-text">Spragniony?</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                <a href="/menu/category/drinki">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -145,6 +128,40 @@
 
         </div>
     </div>
+</div>
+
+    <div class="container">
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Gwarancja jakości!</h2>
+            <p class="lead">Najlepsza jakość, zawsze świeże produkty!</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" th:src="@{images/quality.jpg}" height="500" width="500" alt="Generic placeholder image">
+        </div>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Dostawa zawsze na czas!</h2>
+            <p class="lead">Punktualność to nasza zasada!</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" th:src="@{images/dostawa2.jpg}" height="500" width="500" alt="Generic placeholder image">
+        </div>
+    </div>
+    </div>
+   <br>
+    <footer class="container">
+        <p class="float-right"><a href="#">Do góry</a></p>
+        <p>&copy; 2018 Daniel Belter, Jędrzej Babło </p>
+    </footer>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -156,6 +173,5 @@
    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
    crossorigin="anonymous"></script>
 
-<br/><br/>
 </body>
 </html>
