@@ -33,6 +33,10 @@
 
                                 </div>
                             </div>
+                            <form th:action="@{/order/add}" method="get" style="display: inline">
+                                <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
+                                <button type="submit" class="btn btn-success">Dodaj</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
