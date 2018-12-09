@@ -8,19 +8,23 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 
 <div th:replace="navi/menu"></div>
-<div class="bg-secondary">
-<div class="jumbotron jumbotron-fluid bg-secondary">
-    <div class="container">
-        <h1 class="display-4">Witamy w restauracji "FARADENZA"!</h1>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="text-center">
+        <div class="container">
+        <h1 class="display-4">Witamy w restauracji</h1>
+            <h1 class="display-4">"FARADENZA"</h1>
         <p class="lead">U nas zawsze świeże jedzenie, tanio i szybko!</p>
+    </div>
     </div>
 </div>
 
-<div class="album bg-secondary">
+<div class="album">
     <div class="container">
         <div class="row">
 
@@ -135,8 +139,10 @@
 
     <div class="row featurette">
         <div class="col-md-7">
+            <div class="text-center">
             <h2 class="featurette-heading">Gwarancja jakości!</h2>
             <p class="lead">Najlepsza jakość, zawsze świeże produkty!</p>
+            </div>
         </div>
         <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" th:src="@{images/quality.jpg}" height="500" width="500" alt="Generic placeholder image">
@@ -148,8 +154,10 @@
 
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
+            <div class="text-center">
             <h2 class="featurette-heading">Dostawa zawsze na czas!</h2>
             <p class="lead">Punktualność to nasza zasada!</p>
+            </div>
         </div>
         <div class="col-md-5 order-md-1">
             <img class="featurette-image img-fluid mx-auto" th:src="@{images/dostawa2.jpg}" height="500" width="500" alt="Generic placeholder image">
@@ -162,7 +170,7 @@
         <p>&copy; 2018 Daniel Belter, Jędrzej Babło </p>
     </footer>
 
-</div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
    crossorigin="anonymous"></script>
