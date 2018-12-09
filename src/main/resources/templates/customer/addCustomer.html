@@ -7,6 +7,7 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 <div th:replace="navi/menu"></div>
@@ -14,27 +15,27 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
-            Podaj swoje dane;
+            <h1>Podaj swoje dane:</h1>
             <form th:action="@{/order/complete}" method="post" th:object="${customer}">
                 <div class="form-group">
-                    <label for="name" class="h2 text-info">Name:</label>
+                    <label for="name" class="h2 text-info">Imię:</label>
                     <input id="name" type="text" th:field="*{firstName}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="Lastname" class="h2 text-info">Lastname:</label>
+                    <label for="Lastname" class="h2 text-info">Nazwisko:</label>
                     <input id="Lastname" type="text" th:field="*{lastName}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="h2 text-info">email:</label>
+                    <label for="email" class="h2 text-info">Email:</label>
                     <input id="email" type="text" th:field="*{email}" class="form-control">
                 </div>
-                Adres
+                <h1>Adres</h1>
                 <div class="form-group">
                     <label for="city" class="h2 text-info">Miasto:</label>
                     <input id="city" type="text" th:field="${address.city}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="postcode" class="h2 text-info">kod pocztowy:</label>
+                    <label for="postcode" class="h2 text-info">Kod pocztowy:</label>
                     <input id="postcode" type="text" th:field="${address.postCode}" class="form-control">
                 </div>
 
@@ -52,7 +53,7 @@
         </div>
     </div>
 </div>
-
+<div th:replace="menu/footer"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

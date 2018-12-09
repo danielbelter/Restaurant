@@ -4,6 +4,6 @@ body{
 .jumbotron{
     background-color: lightblue;
 }
-h1{
-    font-family: "Arial Black";
+footer {
+    display: block;
 }

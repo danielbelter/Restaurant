@@ -15,8 +15,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2">
-                    <ul class="list-unstyled mt-5">
-                        <li class="my-2 border rounded p-1" th:each="m : ${meal}">
+                    <ul class="list-unstyled mt-5 ">
+                        <li class="my-2 border rounded p-1 text-center" th:each="m : ${meal}">
                             <div class="media">
                                 <div class="media-body">
                                     <h2>
@@ -39,13 +39,14 @@
 
                             <form th:action="@{/order/add}" method="get" style="display: inline">
                                 <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
-                                <button type="submit" class="btn btn-success">Dodaj</button>
+                                <button type="submit" class="btn btn-outline-success mr-3">Dodaj</button>
                             </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div th:replace="menu/footer"></div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>

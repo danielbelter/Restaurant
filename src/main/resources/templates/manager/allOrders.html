@@ -7,7 +7,7 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
-
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <div th:replace="navi/menu2"></div>
 <body>
@@ -15,25 +15,25 @@
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
             <ul class="list-unstyled mt-5">
-                <li class="my-5 border rounded p-5" th:each="o : ${order}">
-                    <h1 class="text-success">Name:
+                <li class="my-5 border rounded p-1" th:each="o : ${order}">
+                    <h4>Imię:
                         <span th:text="${o.customer}"></span>
-                    </h1>
-                    <h1 class="text-success">Order id:
+                    </h4>
+                    <h4>Numer zamówienia:
                         <span th:text="${o.id}"></span>
-                    </h1>
-                    <h1 class="text-success">Order id:
+                    </h4>
+                    <h4>Priorytet:
                         <span th:text="${o.priority}"></span>
-                    </h1>
-                    <h1 class="text-success">Meals:
+                    </h4>
+                    <h4>Dania:
                         <span th:text="${o.getMeals()}"></span>
-                    </h1>
+                    </h4>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
+<div th:replace="menu/footer"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
