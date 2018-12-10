@@ -135,10 +135,11 @@ public class OrderController {
             int prior = order.getPriority();
             if (prior == 1) {
                 amount = orderService.priceForOrder(order).add(new BigDecimal(10));
-            } else{
+            } else {
                 amount = orderService.priceForOrder(order);
             }
             String orderNumber = order.getId().toString() + order.getRealizationDate();
+
             String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber;
             String sha256hex = DigestUtils.sha256Hex(toSha256);
             String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&chk=" + sha256hex;
