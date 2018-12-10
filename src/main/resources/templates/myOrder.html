@@ -7,30 +7,31 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
 
 </head>
-<div th:replace="navi/menu" class="mb-2">MENU</div>
+<div th:replace="navi/menu"></div>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
             <ul class="list-unstyled mt-5">
-                <h2>Your Order: </h2>
-                <li class="my-5 border rounded p-5" th:each="m : ${meal}">
+                <h2>Twoje zamówienie</h2>
+                <li class="my-5 border rounded p-1 text-center" th:each="m : ${meal}">
                     <div class="media">
                         <div class="media-body">
-                            <h1 class="text-success">Name:
+                            <h2>
                                 <span th:text="${m.name}"></span>
-                            </h1>
-                            <h1 class="text-success">Price:
+                            </h2>
+                            <h4>Cena:
                                 <span th:text="${m.price}"></span>
-                            </h1>
-                            <h1 class="text-success">Components:
+                            </h4>
+                            <h7>Składniki:
                                 <span th:text="${m.component}"></span>
-                            </h1>
-                            <h1 class="text-success">Category:
+                            </h7>
+                            <h7>Kategoria:
                                 <span th:text="${m.category}"></span>
-                            </h1>
+                            </h7>
 
                         </div>
                     </div>
@@ -40,7 +41,7 @@
         </div>
     </div>
 </div>
-
+<div th:replace="menu/footer"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

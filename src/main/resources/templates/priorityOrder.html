@@ -7,14 +7,14 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-<div th:replace="navi/menu" class="mb-5">MENU</div>
+<div th:replace="navi/menu"></div>
 <br/><br/>
 <div class="container">
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
-            Podaj swoje dane;
             <form th:action="@{/order/priorityorder}" method="get" th:object="${order}">
                 <div class="form-group">
                     Piorytet spowoduje wzrost kosztu zamówienia o 10zł ale pozwoli na szybsza realizacje zamowenia.
@@ -28,13 +28,13 @@
                 <div class="form-group">
                     <input type="submit" value="Send" class="btn btn-success">
                     <input type="reset" value="Reset" class="btn btn-danger">
-                    <a class="btn btn-primary" href="/manager">Menu</a>
+                    <a class="btn btn-primary" href="/menu">Menu</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
+<div th:replace="menu/footer"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
