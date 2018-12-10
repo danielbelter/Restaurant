@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
     <link rel="stylesheet" href="https/use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
 
 <div th:replace="navi/menu"></div>
-
-<div class="jumbotron jumbotron-fluid">
+<!--<div class="jumbotron jumbotron-fluid">
     <div class="text-center">
         <div class="container">
         <h1 class="display-4">Witamy w restauracji</h1>
@@ -25,147 +25,211 @@
     </div>
 </div>
 
-<div class="album">
+<div class="jumbotron">
     <div class="container">
-        <div class="row">
+    <div class="text-center">
+        <h1 class="display-3">Witamy w restauracji "FARADENZA"</h1>
+        <p></p>
+    </div>
+    </div>
+</div>
 
-            <div class="col-md-6">
-                <div class="card mb-5 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/american.jpg}" alt="Card image cap" height="320" width="100">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" th:src="@{images/restaurant.jpg}" height=250px width=230px alt="First slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>-->
+
+<div class="album py-5">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" th:src="@{images/american.jpg}" alt="Card image cap" height=250px width=230px >
                     <div class="card-body">
-                        <h3>Kuchnia Amerykańska</h3>
-                        <p class="card-text">Dania prosto za oceanu!</p>
+                        <p class="card-text">Klasyczne burgery prosto ze stanów.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <a href="/menu/category/kuchniaamerykańska">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
-                            </a>
+                                <a href="/menu/category/kuchniaamerykańska">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
+                                </a>
                             </div>
+                            <small class="text-muted">
+                                <i class="far fa-clock">20mins</i>
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="card mb-5 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/asia.jpg}" alt="Card image cap" height="320" width="100">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" th:src="@{images/asia.jpg}" alt="Card image cap" height=250px width=230px >
                     <div class="card-body">
-                        <h3>Kuchnia Azjatycka</h3>
-                        <p class="card-text">Stawonogi, robaki z Japońskich ulic!</p>
+                        <p class="card-text">Stawonogi, robaki z Japońskich ulic.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="/menu/category/azjatycka">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
+                            <small class="text-muted">
+                                <i class="far fa-clock">30mins</i>
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
-            <br/><br/>
-            <div class="col-md-6">
-                <div class="card mb-5 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/italia.jpg}" alt="Card image cap" height="320" width="100">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" th:src="@{images/italia.jpg}" alt="Card image cap" height=250px width=230px >
                     <div class="card-body">
-                        <h3>Kuchnia Włoska</h3>
-                        <p class="card-text">Posmakuj smaków znad morza!</p>
+                        <p class="card-text">Posmakuj smaków znad morza.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="/menu/category/włoska">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
+                            <small class="text-muted">
+                                <i class="far fa-clock">20mins</i>
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="card mb-5 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/meksyk.jpg}" alt="Card image cap" height="320" width="100">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" th:src="@{images/meksyk.jpg}" alt="Card image cap" height=250px width=230px >
                     <div class="card-body">
-                        <h3>Kuchnia Meksykańska</h3>
-                        <p class="card-text">Ostre smaki zawinięte w pszenne placki!</p>
+                        <p class="card-text">Ostre smaki zawinięte w pszenne placki.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="/menu/category/meksykańska">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
+                            <small class="text-muted">
+                                <i class="far fa-clock">40mins</i>
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
-            <br>
-            <div class="col-md-6">
-                <div class="card mb-5 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/pizza.jpg}" alt="Card image cap" height="320" width="100">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" th:src="@{images/pizza.jpg}" alt="Card image cap" height=250px width=230px >
                     <div class="card-body">
-                        <h3>Pizze</h3>
-                        <p class="card-text">Co chcesz! Jak chcesz!</p>
+                        <p class="card-text">Klasyczne pizze.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="/menu/category/pizze">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
+                            <small class="text-muted">
+                                <i class="far fa-clock">35mins</i>
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="card mb-5 shadow-sm">
-                    <img class="card-img-top" th:src="@{images/drinks.jpg}" alt="Card image cap" height="320" width="100">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" th:src="@{images/drinks.jpg}" alt="Card image cap" height=250px width=230px >
                     <div class="card-body">
-                        <h3>Drinki</h3>
-                        <p class="card-text">Spragniony?</p>
+                        <p class="card-text">Drinki idealne na zimowe wieczory.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="/menu/category/drinki">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
+                            <small class="text-muted">
+                                <i class="far fa-clock">10mins</i>
+                            </small>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+<div class="container">
+<hr class="featurette-divider">
 
-    <div class="container">
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <div class="text-center">
-            <h2 class="featurette-heading">Gwarancja jakości!</h2>
-            <p class="lead">Najlepsza jakość, zawsze świeże produkty!</p>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" th:src="@{images/quality.jpg}" height="500" width="500" alt="Generic placeholder image">
+<div class="row featurette">
+    <div class="col-md-7">
+        <div class="text-center">
+        <span style=" margin: 200px;">
+        <h2 class="featurette-heading">Gwarancja jakości!</h2>
+        <p class="lead">Najlepsza jakość sprawdzona przez tysiące osób.</p>
+        </span>
         </div>
     </div>
+    <div class="col-md-5">
+         <span style="font-size: 100px; margin: 100px;">
+            <i class="fas fa-user-check"></i>
+            </span>
+    </div>
+</div>
 
+<hr class="featurette-divider">
 
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <div class="text-center">
-            <h2 class="featurette-heading">Dostawa zawsze na czas!</h2>
-            <p class="lead">Punktualność to nasza zasada!</p>
-            </div>
-        </div>
-        <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" th:src="@{images/dostawa2.jpg}" height="500" width="500" alt="Generic placeholder image">
+<div class="row featurette">
+    <div class="col-md-7 order-md-2">
+        <div class="text-center">
+            <span style=" margin: 200px;">
+        <h2 class="featurette-heading">Szybka dostawa!</h2>
+        <p class="lead">Od razu po przygotowaniu posiłku, nasz dostawca wyrusza w trasę.</p>
+            </span>
         </div>
     </div>
+    <div class="col-md-5 order-md-1">
+         <span style="font-size: 100px; margin: 200px;">
+            <i class="fas fa-shipping-fast"></i>
+            </span>
     </div>
-   <br>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7">
+        <div class="text-center">
+            <span style=" margin: 200px;">
+        <h2 class="featurette-heading">Gorące jedzenie!</h2>
+        <p class="lead">Dzięki specialnym pojemnikom nasze posiłki są zawsze ciepłe.</p>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-5">
+         <span style="font-size: 100px; margin: 100px;">
+            <i class="fas fa-hot-tub"></i>
+            </span>
+    </div>
+</div>
+
+<hr class="featurette-divider">
+</div>
+
+<br>
 
 <div th:replace="menu/footer"></div>
 
