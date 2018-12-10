@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register new user</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
+    <link href="images">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1>Register new user</h1>
+            <form th:action="@{/users/register}" method="post" th:object="${appUser}">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" th:field="*{username}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" th:field="*{password}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="passwordConfirmation">Password Confirmation</label>
+                    <input id="passwordConfirmation" type="password" th:field="*{passwordConfirmation}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">e-mail</label>
+                    <input id="email" type="email" th:field="*{email}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" th:field="*{role}">
+                        <option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</html>
