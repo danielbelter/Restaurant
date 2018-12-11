@@ -1,3 +1,5 @@
 language: java
-services:
-  - mysql
+deploy:
+  provider: heroku
+  api_key:
+    secure: "18fd942e-0574-4a1a-885c-2e9368110bd6"
