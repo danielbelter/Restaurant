@@ -8,29 +8,29 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
-    <link href="images">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
+
+<div th:replace="navi/menu"></div>
+
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <h1>Register new user</h1>
+            <h1>Podaj dane:</h1>
             <form th:action="@{/users/register}" method="post" th:object="${appUser}">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" th:field="*{username}" class="form-control"/>
+                    <input id="username" type="text" th:field="*{username}" class="form-control" placeholder="Login" required autofocus/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" th:field="*{password}" class="form-control"/>
+                    <input id="password" type="password" th:field="*{password}" class="form-control" placeholder="Hasło"/>
                 </div>
                 <div class="form-group">
-                    <label for="passwordConfirmation">Password Confirmation</label>
-                    <input id="passwordConfirmation" type="password" th:field="*{passwordConfirmation}" class="form-control"/>
+                    <input id="passwordConfirmation" type="password" th:field="*{passwordConfirmation}" class="form-control" placeholder="Potwierdź hasło"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">e-mail</label>
-                    <input id="email" type="email" th:field="*{email}" class="form-control"/>
+                    <input id="email" type="email" th:field="*{email}" class="form-control" placeholder="Email"/>
                 </div>
                 <div class="form-group">
                     <label for="role">Role</label>
@@ -39,8 +39,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                    <button type="reset" class="btn btn-danger">Clear</button>
+                    <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+                    <button type="reset" class="btn btn-danger">Wyczyść</button>
                 </div>
             </form>
         </div>

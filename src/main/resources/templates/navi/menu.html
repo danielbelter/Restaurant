@@ -35,7 +35,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">
+            <li sec:authorize="!hasAnyRole('ROLE_ADMIN')" class="nav-item">
                 <a class="nav-link" href="/order">Moje zamówienie<span class="sr-only">(current)</span></a>
             </li>
             <li sec:authorize="hasAnyRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/manager">Panel managera</a></li>

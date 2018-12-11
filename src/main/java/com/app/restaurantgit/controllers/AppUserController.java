@@ -32,7 +32,7 @@ public class AppUserController {
     public String registerNewUserPost(@ModelAttribute AppUser appUser, HttpServletRequest request) {
 
         appUserService.registerNewUser(appUser, request);
-        return "redirect:/";
+        return "redirect:/login/login";
     }
 
 }
