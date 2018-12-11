@@ -52,8 +52,8 @@
                         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Wyloguj się</button>
                     </form>
                 </li>
-            <form sec:authorize="!hasAnyRole('ROLE_ADMIN')" class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Wpisz frazę" aria-label="Search">
+            <form sec:authorize="!hasAnyRole('ROLE_ADMIN')"  action="/menu/search" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" name="category" placeholder="Wpisz frazę" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
             </form>
         </ul>

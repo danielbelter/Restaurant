@@ -35,4 +35,11 @@ public class MainController {
         return "menu/categoryMeals";
     }
 
+
+    @GetMapping("/search")
+    public String searchMealsByCategory(@RequestParam String category, Model model){
+        model.addAttribute("meal",categoryService.findByCategory_Name(category));
+        return "menu/categoryMeals";
+    }
+
 }
