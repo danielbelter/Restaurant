@@ -22,7 +22,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/users/**", "/menu/**", "/order/**").permitAll()
+                .antMatchers("/", "/users/**", "/menu/**", "/order/**","/dotpay/**").permitAll()
                 .antMatchers("/css/**", "/img/**", "/js/**", "/images/**").permitAll()
                 .antMatchers("/manager/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
@@ -51,14 +51,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        /*auth
-                .inMemoryAuthentication()
-                .withUser("u").password(passwordEncoder().encode("1234")).roles("USER")
-                .and()
-                .withUser("a").password(passwordEncoder().encode("1234")).roles("ADMIN")
-                .and()
-                .withUser("s").password(passwordEncoder().encode("1234")).roles("SUPER");*/
-
         auth
                 .userDetailsService(appUserSecurity)
                 .passwordEncoder(passwordEncoder());
