@@ -29,7 +29,7 @@ public class OrderService {
         }
         return retList;
     }
-
+// test for heroku
     public BigDecimal priceForOrder(Order order) {
         BigDecimal price = new BigDecimal(0);
         for (Meal m : order.getMeals()) {
