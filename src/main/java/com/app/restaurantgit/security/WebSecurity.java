@@ -2,6 +2,7 @@ package com.app.restaurantgit.security;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,10 +23,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/users/**", "/menu/**", "/order/**","/dotpay/**").permitAll()
+                .antMatchers("/", "/users/**", "/menu/**", "/order/**","/dotpay","/dotpay/**","/dotpay/dotpay","/dotpay/dotpay/**").permitAll()
                 .antMatchers("/css/**", "/img/**", "/js/**", "/images/**").permitAll()
                 .antMatchers("/manager/**").hasAnyRole("ADMIN")
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
 
                 .and()
                 .formLogin()
@@ -43,6 +44,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/") // gdzie ma mnie przekierowac po wylogowaniu
 
                 .and()
+                .csrf()
+                .disable()
                 .exceptionHandling();
 
 

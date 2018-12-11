@@ -140,9 +140,9 @@ public class OrderController {
             }
             String orderNumber = order.getId().toString() + order.getRealizationDate();
 
-            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber + "localhost:8080" + 0;
+            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber + "localhost:8080/dotpay/dotpay" + 0;
             String sha256hex = DigestUtils.sha256Hex(toSha256);
-            String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&URL=localhost:8080" + "&type=0" + "&chk=" + sha256hex;
+            String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&URL=localhost:8080/dotpay/dotpay" + "&type=0" + "&chk=" + sha256hex;
 
             return "redirect:" + paymentUri;
         }
