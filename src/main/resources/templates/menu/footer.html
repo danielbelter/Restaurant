@@ -1,4 +1,68 @@
-<footer class="container">
-    <p class="float-right"><a href="#">Do góry</a></p>
-    <p>&copy; 2018 Daniel Belter, Jędrzej Babło </p>
-</footer>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>WELCOME</title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+              integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+              crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
+        <link href="../static/css/footer.css" th:href="@{/css/footer.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+
+<section id="footer">
+    <div class="container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Informacje</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="/"><i class="fa fa-angle-double-right"></i>Strona główna</a></li>
+                    <li><a href="/"><i class="fa fa-angle-double-right"></i>Regulamin</a></li>
+                    <li><a href="/"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Menu</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="/menu"><i class="fa fa-angle-double-right"></i>Posiłki</a></li>
+                    <li><a href="/menu/category/meksykańska"><i class="fa fa-angle-double-right"></i>Pizze</a></li>
+                    <li><a href="/menu/category/meksykańska"><i class="fa fa-angle-double-right"></i>Drinki</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Kuchnie świata</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="/menu/category/kuchniaamerykańska"><i class="fa fa-angle-double-right"></i>Kuchnia Amerykańska</a></li>
+                    <li><a href="/menu/category/azjatycka"><i class="fa fa-angle-double-right"></i>Kuchnia Azjatycka</a></li>
+                    <li><a href="/menu/category/włoska"><i class="fa fa-angle-double-right"></i>Kuchnia Włoska</a></li>
+                    <li><a href="/menu/category/meksykańska"><i class="fa fa-angle-double-right"></i>Kuchnia Meksykańska</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                <ul class="list-unstyled list-inline social text-center">
+                    <li class="list-inline-item"><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                    <li class="list-inline-item"><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                    <li class="list-inline-item"><a href=""><i class="fab fa-instagram"></i></i></a></li>
+                    <li class="list-inline-item"><a href=""><i class="fab fa-google-plus-square"></i></a></li>
+                    <li class="list-inline-item"><a href="" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+            </hr>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                <p><u>Projekt studencki</u> na zaliczenie przedmiotu "Projekt"</p>
+                <p class="h6">&copy Daniel Belter, Jędrzej Babło 2018</p>
+            </div>
+            </hr>
+        </div>
+    </div>
+</section>
+</html>

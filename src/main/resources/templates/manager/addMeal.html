@@ -31,7 +31,7 @@
                     <input id="component" type="text" th:field="*{component}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Category</label>
+                    <label class="h2 text-info">Category</label>
                     <ul class="list-group">
                         <li class="list-group-item" th:each="c : ${category}">
                             <input type="radio" th:field="*{category}" th:value="${c.id}" style="width: 20px; height: 20px">
