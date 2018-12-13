@@ -15,6 +15,7 @@
 
 <div th:replace="navi/menu"></div>
 <div id="container">
+
 <!--<div class="jumbotron jumbotron-fluid">
     <div class="text-center">
         <div class="container">
@@ -32,28 +33,20 @@
         <p></p>
     </div>
     </div>
-</div>
+</div>-->
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
+
+
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" th:src="@{images/restaurant.jpg}" height=250px width=230px alt="First slide">
+            <img class="d-block w-100" th:src="@{images/restaurant.jpg}" height=800px width=400px alt="First slide">
+            <div class="centered">
+                <div class="text-center">
+                <h1 class="display-1">Witamy w restauracji "FARADENZA"</h1>
+                </div>
+            </div>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>-->
 
 <div class="album py-5">
     <div class="container">
@@ -66,7 +59,7 @@
                         <p class="card-text">Klasyczne burgery prosto ze stanów.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="/menu/category/kuchniaamerykańska">
+                                <a href="/menu/category/amerykanska">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
@@ -102,7 +95,7 @@
                         <p class="card-text">Posmakuj smaków znad morza.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="/menu/category/włoska">
+                                <a href="/menu/category/wloska">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
@@ -121,7 +114,7 @@
                         <p class="card-text">Ostre smaki zawinięte w pszenne placki.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="/menu/category/meksykańska">
+                                <a href="/menu/category/meksykanska">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Zobacz menu</button>
                                 </a>
                             </div>
@@ -228,8 +221,6 @@
 
 <hr class="featurette-divider">
 </div>
-
-<br>
 
 <div th:replace="menu/footer"></div>
 
