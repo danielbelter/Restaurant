@@ -48,11 +48,11 @@
                     <a href="/login/login" class="btn btn-outline-success">Zaloguj się</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item mr-3">
-                    <form class="form-inline my-2 my-lg-1" method="post" th:action="@{/app-logout}">
+                    <form class="form-inline my-1 my-lg-1" method="post" th:action="@{/app-logout}">
                         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Wyloguj się</button>
                     </form>
                 </li>
-            <form sec:authorize="!hasAnyRole('ROLE_ADMIN')"  action="/menu/search" class="form-inline my-2 my-lg-0">
+            <form sec:authorize="!hasAnyRole('ROLE_ADMIN')"  action="/menu/search" class="form-inline my-1 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" name="category" placeholder="Wpisz frazę" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
             </form>

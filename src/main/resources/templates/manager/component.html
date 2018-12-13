@@ -25,9 +25,10 @@
                             <h3>Cena:
                                 <span th:text="${m.price}"></span>
                             </h3>
-                            <h3>Składniki:
+                            <h7>Składniki:
                                 <span th:text="${m.component}"></span>
-                            </h3>
+                            </h7>
+                            <br>
                             <a class="btn btn-outline-success mr-3" th:href="@{/manager/edit/{id}(id=${m.id})}">Edytuj</a>
                             <form th:action="@{/manager/remove}" method="post" style="display: inline">
                                 <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
@@ -39,7 +40,7 @@
                 </li>
             </ul>
             <br>
-            <a class="btn btn-outline-success mr-3" th:href="@{/manager/add}">Dodaj nowy produkt</a>
+            <a class="btn btn-success mr-3" th:href="@{/manager/add}">Dodaj nowy produkt</a>
         </div>
     </div>
 </div>

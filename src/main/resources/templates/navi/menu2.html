@@ -29,7 +29,7 @@
             <ul class="navbar-nav">
                 <li sec:authorize="isAuthenticated()" class="nav-item mr-3" th:style="${'color: red;'}"  sec:authentication="principal.username"></li>
                 <li sec:authorize="isAuthenticated()" class="nav-item mr-3">
-                    <form class="form-inline my-2 my-lg-1" method="post" th:action="@{/app-logout}">
+                    <form class="form-inline my-1 my-lg-1" method="post" th:action="@{/app-logout}">
                         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Wyloguj się</button>
                     </form>
                 </li>

@@ -1,5 +1,5 @@
 body{
-    background-color: #99FF99
+    background-color: #5e91f2;
 }
 .centered {
     position: absolute;
@@ -10,4 +10,27 @@ body{
 .my-2 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #CCFFCC;
+}
+.text-block {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: black;
+    color: white;
+}
+
+.module {
+    width: 8000px;
+    height: 600px;
+
+    background: url(../images/restaurant.jpg);
+    background-size: cover;
+}
+.darken {
+    background-image:
+            linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+            ),
+            url(../images/restaurant.jpg);
 }
