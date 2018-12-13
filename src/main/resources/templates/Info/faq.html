@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:replace="navi/menu"></div>
+<div class="container">
+    <div class="text-center">
+        <h1>FAQ</h1></div>
+    <div class="text-center-left">
+        <h4>1. W jaki sposób można zapłacić za transakcję?</h4>
+        <h6>Chcąc dokonać płatności za zamówienie można dokonać:</h6>
+        <h6>-płatności przy dostawie</h6>
+        <h6>-szybkiej płatności online tj.  transakcji za pomocą karty kredytowej, debetowej, blik bądź przelewu bankowego.</h6>
+        <h4>2. Czy mogę złożyć jedno zamówienie w kilku restauracjach naraz?</h4>
+        <h6>Nie ma ograniczonej liczby zamówień. Zjemy.co umożliwia realizację wielu zamówień za jednym razem.</h6>
+        <h4>3. Mieszkam w Warszawie - dzielnica Bemowo, czy mogę zamówić jedzenie z Mokotowa?</h4>
+        <h6>Każda restauracja ma swoje strefy dowozu, jeśli mieszkasz w dzielnicy Bemowo, nie możliwym jest zamówienie jedzenia z innej dzielnicy. Inaczej jest w przypadku, gdy restauracja nie dzieli stref dowozu na konkretne dzielnice miasta.</h6>
+        <h4>4. Ile trzeba czekać na dostarczenie jedzenia we wskazany adres?</h4>
+        <h6> Każda z restauracji po złożeniu zamówienia zobowiązana jest do powiadomienia jaki jest czas jego realizacji.</h6>
+        <h4>5. W jakich godzinach najlepiej jest złożyć zamówienie?</h4>
+        <h6>Godziny przyjmowania zamówień są podane u każdego restauratora oddzielnie. Jeśli restauracja nie przyjmuje zamówień, zostaniesz o tym poinformowany.</h6>
+        <h4>6. Dla kogo dedykowana jest aplikacja mobilna?</h4>
+        <h6>Zjemy.co - nowoczesna aplikacja do zamawiania jedzenia on-line– szybko, prosto, bezpiecznie i bez ukrytych kosztów! Wchodząc na stronę zjemy.co, wpisz swój adres, wybierz preferowaną przez Ciebie kuchnię, kliknij w restaurację, która dowozi do Twojej okolicy oraz znajdź swoje ulubione danie. Po krótkim upływie czasu, wymarzona potrawa zostanie zaserwowana w Twoim domu.</h6>
+        <h4>7. Czy mogę zapłacić przelewem tradycyjnym?</h4>
+        <h6>Niestety przelew tradycyjny jest wykluczony z funkcji opłat – wydłużyłoby to okres realizacji zamówienia</h6>
+        <h4>8. Czy jest minimalna kwota zamówienia?</h4>
+        <h6>Każda restauracja określa swoją minimalną kwotę zamówienia, która podana jest w profilu.</h6>
+        <h4>9. Jaki rodzaj jedzenia mogę zamówić przez zjemy.co?</h4>
+        <h6>Restauracje w zjemy.co są podzielone na. wszystkie kuchnie świata - od barów mlecznych, pizzerii, kuchni włoskiej, aż po kuchnię orientalną.</h6>
+        <h4>10. Czy muszę się zarejestrować aby zamówić jedzenie?</h4>
+        <h6>Nie, rejestracja nie jest obowiązkowa, można zamówić jedzenie również jako gość, jeśli jednak podasz dane konta zarejestrowanego jako gość nie będziesz mógł przejść przez zamówienie, trzeba będzie się zalogować.</h6>
+        <h4>11. Czy mogę zamówić jedzenie przez stronę internetową?</h4>
+        <h6>Tak, wchodząc na stronę zjemy.co wystarczy, że zarejestrujesz się na naszej stronie, wybierzesz ulubione jedzenie, a po chwili dostarczymy je do twojego domu.</h6>
+        <h4>12. Jedzenie nie dojechało po 3 godzinach oczekiwania? Co mam zrobić?</h4>
+        <h6>Skontaktuj się z restauracją pod podanym numerem telefonu znajdującym się na zamówieniu restauracji w zjemy.co</h6>
+        <h4>13. Czy można zapłacić kartą przy odbiorze?</h4>
+        <h6>W procesie zamówienia możesz wybrać opcję formy płatności.</h6>
+        <h4>14. Czy dostawca ma przy sobie gotówkę do wydawania?</h4>
+        <h6>Tak, z reguły w każdej restauracji dostawca ma gotówkę do wydawania, z reguły jest to niska kwota.</h6>
+        <h4>15. Co zyskam, zamawiając jedzenie przez zjemy.co?</h4>
+        <h6>Będziesz mógł szybko zamówić jedzenie za każdym razem, kiedy tylko będziesz miał na nie ochotę.</h6>
+        <h4>16. Jak można złożyć reklamację po nieudanym zamówieniu jedzenia?</h4>
+        <h6>- Reklamację należy złożyć bezpośrednio do Restauracji z wykorzystaniem jej danych kontaktowych wymienionych w katalogu zjemy.co. W przypadku zgłoszenia reklamacji, o której mowa w zdaniu poprzednim Zjemy.co może odgrywać jedynie rolę mediatora.</h6>
+        <h6>- W przypadku reklamacji Konsumenta dotyczącej Usług, reklamacja winna być przekazana Działowi Obsługi Klienta Zjemy.co za pośrednictwem:</h6>
+        <h6>a) formularza kontaktowego dostępnego pod adresem zjemy.co</h6>
+        <h6>b) poczty elektronicznej na adres biuro@zjemy.co</h6>
+        <h6>- Po otrzymaniu przez Zjemy.co reklamacji, zostanie ona niezwłocznie rozpatrzona, jednak nie później niż w terminie dwóch tygodni od dnia jej otrzymania. Zjemy.co potwierdzi otrzymanie reklamacji złożonej przez Konsumenta na podany przez niego podczas zgłoszenia adres mailowy.</h6>
+        <h4>17. Czy jest maksymalna kwota zamówienia?</h4>
+        <h6>Nie ma maksymalnej kwoty zamówienia.</h6>
+        <h4>18. Z kim mogę się skontaktować w celu rozwiania moich wątpliwości?</h4>
+        <h6>Zapraszamy do kontaktu pod adresem biuro@zjemy.co.</h6>
+    </div>
+</div>
+</body>
+</html>
