@@ -10,18 +10,49 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
 </head>
-<body>
 
 <div th:replace="navi/navbar"></div>
+
+<body>
+
 <div class="container">
     <div class="text-center-left">
         <br>
         <h1>Status Twojego zamówienia:</h1>
-        <h3><i class="fas fa-check"></i> Zapłacono - zamowienie jest w trakcie realizacji.</h3>
+        <h3><i class="fas fa-check"></i> Zapłacono - zamowienie będzie gotowe za <span id="time">30:00</span></h3>
     </div>
 </div>
 <br>
 <div th:replace="navi/footer"></div>
+
+<script>
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var Minutes = 60 * 30,
+            display = document.querySelector('#time');
+        startTimer(Minutes, display);
+    };
+
+</script>
+
 </body>
 </html>
