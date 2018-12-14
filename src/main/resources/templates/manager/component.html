@@ -29,6 +29,10 @@
                                 <span th:text="${m.component}"></span>
                             </h7>
                             <br>
+                            <h7>Kategoria:
+                                <span th:text="${m.category}"></span>
+                            </h7>
+                            <br>
                             <a class="btn btn-outline-success mr-3" th:href="@{/manager/edit/{id}(id=${m.id})}">Edytuj</a>
                             <form th:action="@{/manager/remove}" method="post" style="display: inline">
                                 <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
