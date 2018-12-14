@@ -17,8 +17,8 @@
         <div class="col-xl-8 offset-xl-2">
             <form th:action="@{/order/priorityorder}" method="get" th:object="${order}">
                 <div class="form-group">
-                    Piorytet spowoduje wzrost kosztu zamówienia o 10zł ale pozwoli na szybsza realizacje zamowenia.
-                    <label for="role">Piorytet</label>
+                    <h3>Piorytet spowoduje wzrost kosztu zamówienia o 10zł ale pozwoli na szybsza realizacje zamowenia.</h3>
+                    <label for="role" class="h3">Piorytet</label>
                     <select id="role" th:field="*{priority}">
                         <option th:value="${1}" th:text="Tak"></option>
                         <option th:value="${0}" th:text="Nie"></option>
@@ -26,8 +26,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Send" class="btn btn-success">
-                    <input type="reset" value="Reset" class="btn btn-danger">
+                    <input type="submit" value="Potwierdź" class="btn btn-success">
                     <a class="btn btn-primary" href="/menu">Menu</a>
                 </div>
             </form>

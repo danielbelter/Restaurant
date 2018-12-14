@@ -15,21 +15,22 @@
     <div class="row">
         <div class="col-xl-8 offset-xl-2">
             <ul class="list-unstyled mt-5">
-                <h2>Twoje zamówienie: </h2>
-                <li class="my-5 border rounded p-1" th:each="o : ${order}">
+                <h1>Twoje zamówienie: </h1>
+                <li class="my-2 border rounded p-1" th:each="o : ${order}">
                     <div class="media">
                         <div class="media-body">
-                            <h1>Szczegóły zamówienia:
+                            <h3>Szczegóły zamówienia:
                                 <span th:text="${o.priority}"></span>
-                            </h1>
-                            <h1>Cena
+                            </h3>
+                            <h3>Cena
                                 <span th:text="${price}"></span>
-                            </h1>
+                            </h3>
 
                         </div>
                     </div>
                 </li>
-                <a class="btn btn-outline-success mr-3" th:href="@{/order/priority}">Complete your order</a>
+                <a class="btn btn-success mr-3" th:href="@{/order/priority}">Potwierdź</a>
+                <a class="btn btn-primary" href="/menu">Menu</a>
             </ul>
         </div>
     </div>

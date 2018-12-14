@@ -17,7 +17,7 @@
         <div class="col-xl-8 offset-xl-2">
             <ul class="list-unstyled mt-5">
                 <h2>Twoje zamówienie</h2>
-                <li class="my-5 border rounded p-1 text-center" th:each="m : ${meal}">
+                <li class="my-2 border rounded p-1 text-center" th:each="m : ${meal}">
                     <div class="media">
                         <div class="media-body">
                             <h2>
@@ -36,7 +36,8 @@
                         </div>
                     </div>
                 </li>
-                <a class="btn btn-outline-success mr-3" th:href="@{/order/complete}">Finalizuj</a>
+                <a class="btn btn-success mr-3" th:href="@{/order/complete}">Finalizuj</a>
+                <a class="btn btn-primary" href="/menu">Menu</a>
             </ul>
         </div>
     </div>
