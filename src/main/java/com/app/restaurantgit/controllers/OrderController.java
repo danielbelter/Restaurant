@@ -15,9 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/order")
@@ -37,7 +35,7 @@ public class OrderController {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
             model.addAttribute("meal", orderService.getAllMealsForOrder(order));
-            return "myOrder";
+            return "order/myOrder";
         }
         return "menu/allMeals";
     }
@@ -101,9 +99,9 @@ public class OrderController {
             model.addAttribute("order", order);
             model.addAttribute("price", orderService.priceForOrder(order));
 
-            return "completeOrder";
+            return "order/completeOrder";
         }
-        return "completeOrder";
+        return "order/completeOrder";
     }
 
     @GetMapping("/priority")
@@ -111,9 +109,9 @@ public class OrderController {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
             model.addAttribute(orderRepository.findById(order.getId()).orElse(new Order()));
-            return "priorityOrder";
+            return "order/priorityOrder";
         }
-        return "completeOrder";
+        return "order/completeOrder";
     }
 
     @GetMapping("/priorityorder{priority}")
@@ -124,7 +122,7 @@ public class OrderController {
             orderRepository.saveAndFlush(order);
             return "redirect:/order/dotpay";
         }
-        return "completeOrder";
+        return "order/completeOrder";
     }
 
     @GetMapping("/dotpay")
