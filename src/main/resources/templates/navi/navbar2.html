@@ -22,8 +22,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="/manager/category/add">Dodaj kategorie<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/manager/orders">Zamówienia<span class="sr-only">(current)</span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/manager/orders" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Zamówienia
+                </a>
+                <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/manager/orders">Obecne<span class="sr-only">(current)</span></a>
+                    <a class="dropdown-item" href="/manager/orders/done">Zrealizowane<span class="sr-only">(current)</span></a>
+                </div>
+
             </li>
         </ul>
             <ul class="navbar-nav">

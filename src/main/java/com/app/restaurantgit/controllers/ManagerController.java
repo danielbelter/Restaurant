@@ -107,4 +107,11 @@ public class ManagerController {
         return "manager/allOrders";
     }
 
+    @GetMapping("/orders/done")
+    public String viewAllOrderDone(Model model){
+        model.addAttribute("order",orderRepository.findAll());
+        model.addAttribute("customer",customerRepository.findAll());
+        model.addAttribute("meal",mealRepository.findAll());
+        return "manager/doneOrders";
+    }
 }
