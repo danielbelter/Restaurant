@@ -30,6 +30,10 @@ public class CategoryService {
         return mealRepository.findByCategory_Name(category);
     }
 
+    public Meal findByName(String name){
+      return mealRepository.findByName(name);
+    }
+
 
 
 }

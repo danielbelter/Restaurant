@@ -37,9 +37,18 @@ public class MainController {
 
 
     @GetMapping("/search")
-    public String searchMealsByCategory(@RequestParam String category, Model model){
-        model.addAttribute("meal",categoryService.findByCategory_Name(category));
+    public String searchMealsByCategory(@RequestParam(name = "category") String name,Model model){
+        model.addAttribute("meal",categoryService.findByName(name));
         return "menu/categoryMeals";
     }
+    @GetMapping("/faq")
+    public String faq(){
+        return "Info/faq";
+    }
 
+
+    @GetMapping("/law")
+    public String law(){
+        return "Info/law";
+    }
 }

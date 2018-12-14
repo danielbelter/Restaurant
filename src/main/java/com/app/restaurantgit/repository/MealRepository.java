@@ -10,4 +10,5 @@ import java.util.List;
 public interface MealRepository extends JpaRepository <Meal,Long> {
     // List<Meal> findByCategory(String category);
     List<Meal> findByCategory_Name(String category);
+    Meal findByName(String name);
 }
