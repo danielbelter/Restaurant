@@ -31,6 +31,24 @@
                     <h4>Dania:
                         <span th:text="${o.getMeals()}"></span>
                     </h4>
+                    <h4>Dania:
+                        <span th:text="${o.orderStatus}"></span>
+                    </h4>
+                    <h4>Data realizacji:
+                        <span th:text="${o.realizationDate}"></span>
+                    </h4>
+                    <form th:action="@{/manager/orders/statusdone}" method="post" style="display: inline">
+                        <input name="id" th:value="${o.id}" readonly="readonly" hidden="hidden"/>
+                        <button type="submit" class="btn btn-danger">ZREALIZWOANE</button>
+                    </form>
+                    <form th:action="@{/manager/orders/delete}" method="post" style="display: inline">
+                        <input name="id" th:value="${o.id}" readonly="readonly" hidden="hidden"/>
+                        <button type="submit" class="btn btn-danger">USUN</button>
+                    </form>
+                    <form th:action="@{/manager/orders/cancel}" method="post" style="display: inline">
+                        <input name="id" th:value="${o.id}" readonly="readonly" hidden="hidden"/>
+                        <button type="submit" class="btn btn-danger">ANULUJ</button>
+                    </form>
                 </li>
             </ul>
         </div>

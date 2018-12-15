@@ -31,6 +31,9 @@ public class Order {
     private List<Meal> meals = new ArrayList<>();
     private String status;
     private LocalDateTime realizationDate;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
 
     @Override
     public boolean equals(Object o) {

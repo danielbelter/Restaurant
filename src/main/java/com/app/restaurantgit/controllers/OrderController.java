@@ -49,6 +49,8 @@ public class OrderController {
                 mealList.add(mealRepository.findById(id).orElseThrow(NullPointerException::new));
                 order.setMeals(mealList);
                 order.setRealizationDate(LocalDateTime.now());
+                order.setOrderStatus(OrderStatus.ZAMOWIONE);
+                order.setPriority(0);
                 orderRepository.save(order);
                 session.setAttribute("order", order);
             } else {
@@ -57,7 +59,8 @@ public class OrderController {
                 mealList.add(mealRepository.findById(id).orElseThrow(NullPointerException::new));
                 order.setMeals(mealList);
                 order.setRealizationDate(LocalDateTime.now());
-                order.setStatus("Nie zaplacono");
+                order.setPriority(0);
+                order.setOrderStatus(OrderStatus.ZAMOWIONE);
                 orderRepository.save(order);
                 session.setAttribute("order", order);
             }
@@ -83,6 +86,7 @@ public class OrderController {
             Order order = (Order) session.getAttribute("order");
             customer.setAddress(address);
             order.setCustomer(customer);
+
             customerRepository.save(customer);
             orderRepository.save(order);
 
@@ -118,6 +122,7 @@ public class OrderController {
     public String prioritySetGET(@RequestParam("priority") Integer priority, HttpSession session) {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
+            order.setOrderStatus(OrderStatus.ZAMOWIONE);
             order.setPriority(priority);
             orderRepository.saveAndFlush(order);
             return "redirect:/order/dotpay";
