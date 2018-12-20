@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -131,7 +132,7 @@ public class OrderController {
     }
 
     @GetMapping("/dotpay")
-    public String moveToDotpay(HttpSession session) {
+    public String moveToDotpay(@RequestHeader String host,HttpSession session) {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
             BigDecimal amount = BigDecimal.valueOf(0);
@@ -143,9 +144,9 @@ public class OrderController {
             }
             String orderNumber = order.getId().toString() + order.getRealizationDate();
 
-            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber + "localhost:8080/dotpay/dotpay" + 0;
+            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber +host+ 0;
             String sha256hex = DigestUtils.sha256Hex(toSha256);
-            String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&URL=localhost:8080/dotpay/dotpay" + "&type=0" + "&chk=" + sha256hex;
+            String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&URL=guarded-earth-39191.herokuapp.com/dotpay/dotpay" + "&type=0" + "&chk=" + sha256hex;
 
             return "redirect:" + paymentUri;
         }
