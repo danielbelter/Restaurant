@@ -144,7 +144,7 @@ public class OrderController {
             }
             String orderNumber = order.getId().toString() + order.getRealizationDate();
 
-            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber +host+ 0;
+            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber +"guarded-earth-39191.herokuapp.com/dotpay/dotpay"+ 0;
             String sha256hex = DigestUtils.sha256Hex(toSha256);
             String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&URL=guarded-earth-39191.herokuapp.com/dotpay/dotpay" + "&type=0" + "&chk=" + sha256hex;
 
