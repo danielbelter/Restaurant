@@ -105,7 +105,7 @@ public class ManagerController {
 
     @GetMapping("/orders")
     public String viewAllOrder(Model model) {
-        model.addAttribute("order", orderRepository.findAll());
+        model.addAttribute("order", orderRepository.findAllByOrderStatusIsNotContaining());
         model.addAttribute("customer", customerRepository.findAll());
         model.addAttribute("meal", mealRepository.findAll());
         return "manager/allOrders";
