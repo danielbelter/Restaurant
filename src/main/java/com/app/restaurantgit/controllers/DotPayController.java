@@ -15,8 +15,12 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/dotpay")
 public class DotPayController {
-    @Autowired
+
     OrderRepository orderRepository;
+
+    public DotPayController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     @PostMapping("/dotpay")
     public String okStatus(@RequestParam("status") String status, HttpSession session) {

@@ -22,9 +22,13 @@ import java.time.LocalDateTime;
 @RequestMapping("/manager")
 public class ManagerController {
 
+    @Autowired
     MealService service;
+    @Autowired
     MealRepository mealRepository;
+    @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
     CategoryService categoryService;
     @Autowired
     OrderRepository orderRepository;
@@ -32,13 +36,6 @@ public class ManagerController {
     OrderService orderService;
     @Autowired
     CustomerRepository customerRepository;
-
-    public ManagerController(MealService service, MealRepository mealRepository, CategoryService categoryService, CategoryRepository categoryRepository) {
-        this.service = service;
-        this.mealRepository = mealRepository;
-        this.categoryRepository = categoryRepository;
-        this.categoryService = categoryService;
-    }
 
     @GetMapping()
     public String managerComponent(Model model) {
@@ -105,7 +102,7 @@ public class ManagerController {
 
     @GetMapping("/orders")
     public String viewAllOrder(Model model) {
-        model.addAttribute("order", orderRepository.findAllByOrOrderStatus_ZrealizowaneIsNotContaining());
+        model.addAttribute("order", orderService.findAllByOrderStatusIsNotContaining());
         model.addAttribute("customer", customerRepository.findAll());
         model.addAttribute("meal", mealRepository.findAll());
         return "manager/allOrders";

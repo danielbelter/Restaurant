@@ -51,11 +51,13 @@ public class OrderService {
         return filteredList;
 
     }
-    /*
-    public List<Order> findAllByOrderStatusIsNotContaining(String status){
+
+    public List<Order> findAllByOrderStatusIsNotContaining(){
         List<Order> filteredList = orderRepository.findAll().stream()
-                .filter(order -> order.getOrderStatus().equals(OrderStatus.ZREALIZOWANE))
+                .filter(order -> !order.getOrderStatus().equals(OrderStatus.ZREALIZOWANE))
+                .collect(Collectors.toList());
+        return filteredList;
     }
-    */
+
 
 }

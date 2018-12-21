@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order,Long> {
-    // List<Order> findAllByOrderStatusIsNotContaining;
-    List<Order> findAllByOrOrderStatus_ZrealizowaneIsNotContaining();
 }
