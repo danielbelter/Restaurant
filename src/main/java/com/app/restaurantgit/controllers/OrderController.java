@@ -152,5 +152,14 @@ public class OrderController {
         }
         return "redirect:/order";
     }
+    @PostMapping("/delete{id}")
+    public String deleteMealFromOrder(@RequestParam("id") Long id,HttpSession session){
+        Order order = (Order) session.getAttribute("order");
+        List<Meal> mealList = order.getMeals();
+        mealList.remove(mealRepository.findById(id).orElseThrow(NullPointerException::new));
+        orderRepository.save(order);
+        session.setAttribute("order",order);
+        return "redirect:/order";
+    }
 
 }
