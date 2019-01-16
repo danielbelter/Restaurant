@@ -20,7 +20,10 @@
                     <div class="media">
                         <div class="media-body">
                             <h3>Szczegóły zamówienia:
-                                <span th:text="${o.priority}"></span>
+                                <li class="my-2 border rounded p-1" th:each="m : *{order.getMeals()}">
+                                    <span th:text="${m.name}"></span>
+                                </li>
+
                             </h3>
                             <h3>Cena
                                 <span th:text="${price}"></span>
