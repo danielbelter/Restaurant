@@ -35,15 +35,15 @@
                         <span th:text="${o.orderStatus}"></span>
                     </h4>
                     <h4>Data realizacji:
-                        <span th:text="${o.realizationDate}"></span>
+                        <span th:text="${#temporals.format(o.realizationDate, 'dd-MM-yyyy HH:mm')}"></span>
                     </h4>
                     <form th:action="@{/manager/orders/statusdone}" method="post" style="display: inline">
                         <input name="id" th:value="${o.id}" readonly="readonly" hidden="hidden"/>
-                        <button type="submit" class="btn btn-danger">ZREALIZWOANE</button>
+                        <button type="submit" class="btn btn-danger">ZREALIZOWANE</button>
                     </form>
                     <form th:action="@{/manager/orders/delete}" method="post" style="display: inline">
                         <input name="id" th:value="${o.id}" readonly="readonly" hidden="hidden"/>
-                        <button type="submit" class="btn btn-danger">USUN</button>
+                        <button type="submit" class="btn btn-danger">USUŃ</button>
                     </form>
                     <form th:action="@{/manager/orders/cancel}" method="post" style="display: inline">
                         <input name="id" th:value="${o.id}" readonly="readonly" hidden="hidden"/>

@@ -3,6 +3,7 @@ package com.app.restaurantgit.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -30,6 +31,7 @@ public class Order {
     )
     private List<Meal> meals = new ArrayList<>();
     private String status;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime realizationDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

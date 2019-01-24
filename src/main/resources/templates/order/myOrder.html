@@ -34,11 +34,11 @@
                             </h7>
 
                         </div>
-                        <form th:action="@{/order/delete}" method="post" style="display: inline">
-                            <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
-                            <button type="submit" class="btn btn-danger">USUN</button>
-                        </form>
                     </div>
+                    <form th:action="@{/order/delete}" method="post" style="display: inline">
+                        <input name="id" th:value="${m.id}" readonly="readonly" hidden="hidden"/>
+                        <button type="submit" class="btn btn-danger">USUN</button>
+                    </form>
                 </li>
                 <a class="btn btn-success mr-3" th:href="@{/order/complete}">Finalizuj</a>
                 <a class="btn btn-primary" href="/menu">Menu</a>

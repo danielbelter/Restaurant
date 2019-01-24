@@ -35,6 +35,9 @@ public class OrderController {
     public String index(Model model, HttpSession session) {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
+            if(order.getMeals().size() == 0 ){
+                return "order/emptyCart";
+            }
             model.addAttribute("meal", orderService.getAllMealsForOrder(order));
             return "order/myOrder";
         }
@@ -73,11 +76,16 @@ public class OrderController {
     public String completeYourOrder(HttpSession session, Model model) {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
+            if (order.getMeals().size() == 0) {
+                session.removeAttribute("order");
+                return "redirect:/menu";
+            }
             model.addAttribute("customer", new Customer());
             model.addAttribute("address", new Address());
 
             return "customer/addCustomer";
         }
+
         return "customer/addCustomer";
     }
 
@@ -132,7 +140,7 @@ public class OrderController {
     }
 
     @GetMapping("/dotpay")
-    public String moveToDotpay(@RequestHeader String host,HttpSession session) {
+    public String moveToDotpay(@RequestHeader String host, HttpSession session) {
         if (session.getAttribute("order") != null) {
             Order order = (Order) session.getAttribute("order");
             BigDecimal amount = BigDecimal.valueOf(0);
@@ -144,7 +152,7 @@ public class OrderController {
             }
             String orderNumber = order.getId().toString() + order.getRealizationDate();
 
-            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber +"guarded-earth-39191.herokuapp.com/dotpay/dotpay"+ 0;
+            String toSha256 = "2yMortk7dQcD4XKoriPEUPCTQO5IOxY8" + "dev" + "738082" + amount + "PLN" + orderNumber + "guarded-earth-39191.herokuapp.com/dotpay/dotpay" + 0;
             String sha256hex = DigestUtils.sha256Hex(toSha256);
             String paymentUri = "https://ssl.dotpay.pl/test_payment/?api_version=dev&id=738082&amount=" + amount + "&currency=PLN&description=" + orderNumber + "&URL=guarded-earth-39191.herokuapp.com/dotpay/dotpay" + "&type=0" + "&chk=" + sha256hex;
 
@@ -152,13 +160,14 @@ public class OrderController {
         }
         return "redirect:/order";
     }
+
     @PostMapping("/delete{id}")
-    public String deleteMealFromOrder(@RequestParam("id") Long id,HttpSession session){
+    public String deleteMealFromOrder(@RequestParam("id") Long id, HttpSession session) {
         Order order = (Order) session.getAttribute("order");
         List<Meal> mealList = order.getMeals();
         mealList.remove(mealRepository.findById(id).orElseThrow(NullPointerException::new));
         orderRepository.save(order);
-        session.setAttribute("order",order);
+        session.setAttribute("order", order);
         return "redirect:/order";
     }
 

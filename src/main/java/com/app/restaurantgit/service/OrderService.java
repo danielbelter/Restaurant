@@ -55,6 +55,7 @@ public class OrderService {
     public List<Order> findAllByOrderStatusIsNotContaining(){
         List<Order> filteredList = orderRepository.findAll().stream()
                 .filter(order -> !order.getOrderStatus().equals(OrderStatus.ZREALIZOWANE))
+                .sorted(Comparator.comparing(Order::getPriority).reversed())
                 .collect(Collectors.toList());
         return filteredList;
     }
