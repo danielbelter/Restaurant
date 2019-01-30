@@ -1,5 +1,5 @@
 # Restaurant management system
-[![Build Status](https://travis-ci.com/danielbelter/Restaurant-system.svg?token=zooFDqpcEQ2zxZrDi78L&branch=master)](https://travis-ci.com/danielbelter/Restaurant-system)
+[![Build Status](https://travis-ci.com/danielbelter/Restaurant.svg?branch=master)](https://travis-ci.com/danielbelter/Restaurant)
 
 # Technologies 
 Java 8, Spring boot, spring data, spring security, thymeleaf, bootstrap, Dotpay API
